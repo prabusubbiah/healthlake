@@ -1,0 +1,12 @@
+{
+	"name": "adf_postgresql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": []
+	}
+}
