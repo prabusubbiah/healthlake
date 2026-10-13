@@ -31,12 +31,56 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ingest all tables",
+				"description": "get the table list from @lookup activity and process one by one using @foreach activity",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "metadatalookup for ingestion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('metadatalookup for ingestion').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "check values",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "test",
+								"value": {
+									"value": "@string(item().table_id)",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
 			"souce_system": {
 				"type": "string",
 				"defaultValue": "neon_postgres"
+			}
+		},
+		"variables": {
+			"test": {
+				"type": "String"
 			}
 		},
 		"annotations": []
