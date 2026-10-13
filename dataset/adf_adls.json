@@ -19,11 +19,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@dataset().test",
+					"value": "@dataset().folder",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "@dataset().landing",
+					"value": "@dataset().container",
 					"type": "Expression"
 				}
 			},
