@@ -58,6 +58,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"container": {
+				"type": "string"
+			},
+			"folder": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
