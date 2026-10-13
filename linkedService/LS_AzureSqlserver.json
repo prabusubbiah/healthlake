@@ -1,0 +1,24 @@
+{
+	"name": "LS_AzureSqlserver",
+	"properties": {
+		"description": "Linked service to Azure sqlserver",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sqlserver-healthlake.database.windows.net",
+			"database": "sql_healthlake_db",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "prabusubbiah",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlserver-password"
+			}
+		}
+	}
+}
