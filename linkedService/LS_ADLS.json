@@ -1,0 +1,11 @@
+{
+	"name": "LS_ADLS",
+	"properties": {
+		"description": "linked service - Azure Data Lake Storage",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://healthlakeproject.dfs.core.windows.net/"
+		}
+	}
+}
