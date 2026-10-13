@@ -1,0 +1,11 @@
+{
+	"name": "LS_AzureKeyVault",
+	"properties": {
+		"description": "linked service Keyvault to ADF",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://healthlake-keyvalt.vault.azure.net/"
+		}
+	}
+}
