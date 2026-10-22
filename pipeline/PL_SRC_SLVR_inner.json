@@ -1,0 +1,7 @@
+{
+	"name": "PL_SRC_SLVR_inner",
+	"properties": {
+		"description": "lookup the metadata table based on table_id dynamically and read the data from SQL server to ADLS respective folders",
+		"annotations": []
+	}
+}
