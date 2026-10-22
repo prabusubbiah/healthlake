@@ -19,7 +19,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from ctrl_schema.table_config where table_id='1'",
+						"sqlReaderQuery": "select * from ctrl_schema.table_config where table_id='1' and source_system='neon_postgres';",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
