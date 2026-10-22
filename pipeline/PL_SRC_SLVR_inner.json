@@ -7,8 +7,6 @@
 				"name": "Read table details",
 				"description": "Read table details from metadata",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
