@@ -7,6 +7,8 @@
 				"name": "Read table details",
 				"description": "Read table details from metadata",
 				"type": "Lookup",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -20,7 +22,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from ctrl_schema.table_config where table_id='@{pipeline().parameters.table_id}' and source_system='@{pipeline().parameters.source_system}';",
+							"value": "select * from ctrl_schema.table_config where is_active='1' and source_system='@{pipeline().parameters.source_system}';",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
