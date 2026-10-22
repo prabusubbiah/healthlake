@@ -19,7 +19,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from ctrl_schema.table_config where table_id='1' and source_system='neon_postgres';",
+						"sqlReaderQuery": {
+							"value": "select * from ctrl_schema.table_config where table_id='@{pipeline().parameters.table_id}' and source_system='@{pipeline().parameters.source_system}';",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -35,6 +38,10 @@
 			"table_id": {
 				"type": "string",
 				"defaultValue": "1"
+			},
+			"source_system": {
+				"type": "string",
+				"defaultValue": "neon_postgres"
 			}
 		},
 		"annotations": []
