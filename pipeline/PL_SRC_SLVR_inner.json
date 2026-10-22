@@ -2,6 +2,42 @@
 	"name": "PL_SRC_SLVR_inner",
 	"properties": {
 		"description": "lookup the metadata table based on table_id dynamically and read the data from SQL server to ADLS respective folders",
+		"activities": [
+			{
+				"name": "Read table details",
+				"description": "Read table details from metadata",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "PostgreSqlV2Source",
+						"query": {
+							"value": "select * from ctrl_schema.table_config where table_id='@{pipeline().parameters.table_id}'",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "PostgreSqlTable1",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"table_id": {
+				"type": "string",
+				"defaultValue": "1"
+			}
+		},
 		"annotations": []
 	}
 }
