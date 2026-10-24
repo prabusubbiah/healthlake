@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "metadatalookup for ingestion",
+				"name": "read_source_tables",
 				"description": "list of tables details from metadata tables",
 				"type": "Lookup",
 				"dependsOn": [],
