@@ -19,7 +19,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select table_id from ctrl_schema.table_config where is_active='True' and source_system='@{pipeline().parameters.souce_system}';",
+							"value": "select table_id from ctrl_schema.table_config where is_active='True' and source_system='@{pipeline().parameters.source_systems};",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -35,16 +35,12 @@
 			{
 				"name": "ingest_all_tables",
 				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "metadatalookup for ingestion",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "source_to_adb_Silver",
