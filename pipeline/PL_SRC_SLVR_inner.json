@@ -230,7 +230,7 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "UPDATE ctrl_schema.audit_log\nSET status='Failed' , end_time=sysutcdatetime(),records_written='@{activity('bronze_to_silver').output.runOutput}'\nWHERE adf_run_id = '@{pipeline().parameters.adf_run_id}'\nand table_id = '@{pipeline().parameters.table_id}'",
+								"value": "UPDATE ctrl_schema.audit_log\nSET status='Success' , end_time=sysutcdatetime(),records_written='@{activity('bronze_to_silver').output.runOutput}'\nWHERE adf_run_id = '@{pipeline().parameters.adf_run_id}'\nand table_id = '@{pipeline().parameters.table_id}'",
 								"type": "Expression"
 							}
 						}
