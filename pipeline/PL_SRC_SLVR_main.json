@@ -19,7 +19,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select table_id from ctrl_schema.table_config where is_active='True' and source_system='@{pipeline().parameters.source_system}';",
+							"value": "select table_id from ctrl_schema.table_config where is_active=1 and source_system='@{pipeline().parameters.source_system}';",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -101,7 +101,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "INSERT INTO ctrl_schema.audit_log (adf_run_id,table_id,stage,status,start_time)\nvalues ('@{pipeline().parameters.adf_run_id}',@{item().table_id},'src_to_slvr','In-Progress',sysutcdatetime())",
+											"value": "INSERT INTO ctrl_schema.audit_log (adf_run_id,table_id,stage,status,start_time) values ('@{pipeline().parameters.adf_run_id}','@{item().table_id}'','src_to_slvr','In-Progress',sysutcdatetime())",
 											"type": "Expression"
 										}
 									}
