@@ -1,0 +1,20 @@
+{
+	"name": "LS_AzureDatabricks",
+	"properties": {
+		"description": "LS to access Azure Databricks workspace.notbooks  ",
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-7405605377599649.9.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "adb-accessToken"
+			},
+			"existingClusterId": "1023-071350-ba1mwasb"
+		}
+	}
+}
