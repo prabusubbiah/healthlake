@@ -84,7 +84,7 @@
 			},
 			"adf_run_id": {
 				"type": "string",
-				"defaultValue": "run1"
+				"defaultValue": "R1"
 			}
 		},
 		"variables": {
