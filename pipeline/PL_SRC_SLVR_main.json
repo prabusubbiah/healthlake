@@ -33,8 +33,7 @@
 				}
 			},
 			{
-				"name": "ingest all tables",
-				"description": "get the table list from @lookup activity and process one by one using @foreach activity",
+				"name": "ingest_all_tables",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -46,25 +45,26 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"items": {
-						"value": "@activity('metadatalookup for ingestion').output.value",
-						"type": "Expression"
-					},
 					"activities": [
 						{
-							"name": "check values",
-							"type": "SetVariable",
+							"name": "source_to_adb_Silver",
+							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
-								"secureOutput": false,
 								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "test",
-								"value": {
-									"value": "@string(item().table_id)",
-									"type": "Expression"
+								"pipeline": {
+									"referenceName": "PL_SRC_SLVR_inner",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"table_id": {
+										"value": "@item().table_id",
+										"type": "Expression"
+									}
 								}
 							}
 						}
