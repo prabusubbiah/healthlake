@@ -73,7 +73,7 @@
 			}
 		],
 		"parameters": {
-			"souce_system": {
+			"source_systems": {
 				"type": "string",
 				"defaultValue": "neon_postgres"
 			}
