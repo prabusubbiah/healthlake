@@ -188,7 +188,7 @@
 					"notebookPath": "/healthlake-repo/adb-healthlake/bronze_to_silver",
 					"baseParameters": {
 						"table_name": {
-							"value": "@activity('Read table details').output.firstRow.bronze_table_name",
+							"value": "@activity('Read table details').output.firstRow.silver_table_name",
 							"type": "Expression"
 						},
 						"landing_timestamp": {
