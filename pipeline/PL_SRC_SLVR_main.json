@@ -45,6 +45,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('read_source_tables').output.value",
+						"type": "Expression"
+					},
 					"isSequential": false,
 					"activities": [
 						{
