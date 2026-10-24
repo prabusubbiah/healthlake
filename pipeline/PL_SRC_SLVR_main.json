@@ -101,7 +101,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "INSERT INTO ctrl_schema.audit_log (adf_run_id,table_id,stage,status,start_time) values ('@{pipeline().parameters.adf_run_id}','@{item().table_id}'','src_to_slvr','In-Progress',sysutcdatetime())",
+											"value": "INSERT INTO ctrl_schema.audit_log (adf_run_id,table_id,stage,status,start_time) values ('@{pipeline().parameters.adf_run_id}','@{item().table_id}','src_to_slvr','In-Progress',sysutcdatetime())",
 											"type": "Expression"
 										}
 									}
