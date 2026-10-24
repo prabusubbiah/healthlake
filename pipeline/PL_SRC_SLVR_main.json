@@ -116,7 +116,7 @@
 								{
 									"activity": "source_to_adb_Silver",
 									"dependencyConditions": [
-										"Succeeded"
+										"Failed"
 									]
 								}
 							],
