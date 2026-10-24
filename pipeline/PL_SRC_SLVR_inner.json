@@ -207,10 +207,6 @@
 			"table_id": {
 				"type": "string",
 				"defaultValue": "1"
-			},
-			"source_system": {
-				"type": "string",
-				"defaultValue": "neon_postgres"
 			}
 		},
 		"variables": {
