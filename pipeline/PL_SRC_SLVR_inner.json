@@ -201,6 +201,42 @@
 					"referenceName": "LS_AzureDatabricks",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Update Success  Status with Count",
+				"type": "Script",
+				"dependsOn": [
+					{
+						"activity": "bronze_to_silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 2,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "LS_AzureSqlserver",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": {
+								"value": "UPDATE ctrl_schema.audit_log\nSET status='Failed' , end_time=sysutcdatetime(),records_written='@{activity('bronze_to_silver').output.runOutput}'\nWHERE adf_run_id = '@{pipeline().parameters.adf_run_id}'\nand table_id = '@{pipeline().parameters.table_id}'",
+								"type": "Expression"
+							}
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
 			}
 		],
 		"parameters": {
