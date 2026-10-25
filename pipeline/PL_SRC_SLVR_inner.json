@@ -189,7 +189,7 @@
 							"value": "@variables('start_ts')",
 							"type": "Expression"
 						},
-						"mergekeys": {
+						"merge_keys": {
 							"value": "@coalesce(activity('Read table details').output.firstRow.merge_keys,'')\n",
 							"type": "Expression"
 						},
