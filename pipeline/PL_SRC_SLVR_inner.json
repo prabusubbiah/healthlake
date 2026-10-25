@@ -56,7 +56,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "If Condition1",
+						"activity": "Check Load Type",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -233,7 +233,7 @@
 				}
 			},
 			{
-				"name": "If Condition1",
+				"name": "Check Load Type",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
